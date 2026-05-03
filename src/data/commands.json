@@ -1,0 +1,794 @@
+[
+    {
+        "name": "bang",
+        "category": "Acciones",
+        "description": "Dispara a un usuario de forma amistosa.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3bang @usuario"
+    },
+    {
+        "name": "mkiss",
+        "category": "Acciones",
+        "description": "Da un beso en la mejilla.",
+        "aliases": [
+            "kiss"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3mkiss @usuario"
+    },
+    {
+        "name": "fkiss",
+        "category": "Acciones",
+        "description": "Da un beso en la frente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3fkiss @usuario"
+    },
+    {
+        "name": "bkiss",
+        "category": "Acciones",
+        "description": "Besa la mano o frente de alguien.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3bkiss @usuario"
+    },
+    {
+        "name": "ckiss",
+        "category": "Acciones",
+        "description": "Da un beso tierno.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3ckiss @usuario"
+    },
+    {
+        "name": "hug",
+        "category": "Acciones",
+        "description": "Abraza cariñosamente a otro usuario.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3hug @usuario"
+    },
+    {
+        "name": "think",
+        "category": "Acciones",
+        "description": "Te quedas pensando profundamente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3think"
+    },
+    {
+        "name": "sleepy",
+        "category": "Acciones",
+        "description": "Muestras lo cansado que estás.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sleepy"
+    },
+    {
+        "name": "sip",
+        "category": "Acciones",
+        "description": "Toma un sorbo de tu bebida.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sip"
+    },
+    {
+        "name": "scared",
+        "category": "Acciones",
+        "description": "Te asustas por algo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3scared"
+    },
+    {
+        "name": "sad",
+        "category": "Acciones",
+        "description": "Expresas tu tristeza.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sad"
+    },
+    {
+        "name": "pout",
+        "category": "Acciones",
+        "description": "Haces un puchero tierno.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3pout"
+    },
+    {
+        "name": "happy",
+        "category": "Acciones",
+        "description": "Demuestras tu felicidad.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3happy"
+    },
+    {
+        "name": "frio",
+        "category": "Acciones",
+        "description": "Tiemblas de frío.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3frio"
+    },
+    {
+        "name": "eureka",
+        "category": "Acciones",
+        "description": "¡Tienes una gran idea!",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3eureka"
+    },
+    {
+        "name": "eat",
+        "category": "Acciones",
+        "description": "Comes algo delicioso.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3eat"
+    },
+    {
+        "name": "dance",
+        "category": "Acciones",
+        "description": "Empiezas a bailar alegremente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3dance"
+    },
+    {
+        "name": "cute",
+        "category": "Acciones",
+        "description": "Haces una pose linda.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cute"
+    },
+    {
+        "name": "cry",
+        "category": "Acciones",
+        "description": "Lloras desconsoladamente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cry"
+    },
+    {
+        "name": "calor",
+        "category": "Acciones",
+        "description": "Te quejas del calor agobiante.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3calor"
+    },
+    {
+        "name": "blush",
+        "category": "Acciones",
+        "description": "Te sonrojas tiernamente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3blush"
+    },
+    {
+        "name": "angry",
+        "category": "Acciones",
+        "description": "Te enfadas visiblemente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3angry"
+    },
+    {
+        "name": "afk",
+        "category": "Afk",
+        "description": "Establece tu estado como Ausente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3afk"
+    },
+    {
+        "name": "ai_toggle",
+        "category": "Ai_chat",
+        "description": "Activa o desactiva la respuesta de inteligencia artificial.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3ai_toggle [estado]"
+    },
+    {
+        "name": "album",
+        "category": "Album",
+        "description": "Visualiza tu colección de personajes y cartas.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3album [usuario]"
+    },
+    {
+        "name": "add_rss",
+        "category": "Alerts",
+        "description": "Añade una fuente RSS (YouTube/X/Blog).",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3add_rss [nombre_id] [url_rss] [canal] [mensaje]"
+    },
+    {
+        "name": "add_twitch",
+        "category": "Alerts",
+        "description": "Añade alerta de Twitch.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3add_twitch [streamer] [canal] [mensaje]"
+    },
+    {
+        "name": "list_alerts",
+        "category": "Alerts",
+        "description": "Lista todas las alertas activas.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3list_alerts"
+    },
+    {
+        "name": "anime",
+        "category": "Api_anime",
+        "description": "Busca información detallada de un anime.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3anime"
+    },
+    {
+        "name": "link",
+        "category": "Api_steam",
+        "description": "Vincula tu cuenta de Steam a tu perfil de Discord.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3link [id_o_url]"
+    },
+    {
+        "name": "sticky_add",
+        "category": "Automatizacion",
+        "description": "Mantiene un mensaje fijo al fondo del canal.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3sticky_add"
+    },
+    {
+        "name": "sticky_remove",
+        "category": "Automatizacion",
+        "description": "Elimina el mensaje fijado de este canal.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3sticky_remove"
+    },
+    {
+        "name": "trigger_add",
+        "category": "Automatizacion",
+        "description": "Añade una palabra clave que activará una respuesta automática.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3trigger_add [gatillo] [respuesta] [tipo] [modo]"
+    },
+    {
+        "name": "setup_general",
+        "category": "Canales",
+        "description": "Marca este canal como restringido (Solo comandos básicos).",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_general"
+    },
+    {
+        "name": "setup_bot_channel",
+        "category": "Canales",
+        "description": "Configura el canal para usar todos los comandos.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_bot_channel [canal]"
+    },
+    {
+        "name": "free_channel",
+        "category": "Canales",
+        "description": "Elimina las restricciones de canales en este servidor.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3free_channel"
+    },
+    {
+        "name": "confess",
+        "category": "Confesiones",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3confess"
+    },
+    {
+        "name": "confess",
+        "category": "Confesiones",
+        "description": "Envía una confesión al canal secreto.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3confess [mensaje] [anonimo]"
+    },
+    {
+        "name": "confession_setup",
+        "category": "Confesiones",
+        "description": "Configura el canal de confesiones.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3confession_setup [canal]"
+    },
+    {
+        "name": "welcome",
+        "category": "Debug",
+        "description": "Envía un mensaje de bienvenida de prueba.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3welcome"
+    },
+    {
+        "name": "goodbye",
+        "category": "Debug",
+        "description": "Envía un mensaje de despedida de prueba.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3goodbye"
+    },
+    {
+        "name": "boost",
+        "category": "Debug",
+        "description": "Envía un mensaje de mejora (boost) de prueba.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3boost"
+    },
+    {
+        "name": "verify",
+        "category": "Debug",
+        "description": "Comprueba el sistema de verificación.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3verify"
+    },
+    {
+        "name": "balance",
+        "category": "Economy",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [
+            "bal"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3balance @usuario"
+    },
+    {
+        "name": "work",
+        "category": "Economy",
+        "description": "Trabaja para ganar algo de economía.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3work"
+    },
+    {
+        "name": "daily",
+        "category": "Economy",
+        "description": "Reclama tu recompensa diaria.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3daily"
+    },
+    {
+        "name": "builder",
+        "category": "Embeds",
+        "description": "Abre el panel de edición de embeds para Lunae.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3builder [nombre]"
+    },
+    {
+        "name": "test_embed",
+        "category": "Embeds",
+        "description": "Envía una prueba del embed configurado.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3test_embed [nombre]"
+    },
+    {
+        "name": "reload_hsr",
+        "category": "Game_hsr",
+        "description": "Recarga tus datos de Honkai Star Rail.",
+        "aliases": [],
+        "permissions": "Dueño del Bot",
+        "example": "<3reload_hsr"
+    },
+    {
+        "name": "hsr_set_fav",
+        "category": "Game_hsr",
+        "description": "Fija personajes en tu perfil (Slots 1-5).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3hsr_set_fav [slot] [char_name]"
+    },
+    {
+        "name": "hsr_clear_fav",
+        "category": "Game_hsr",
+        "description": "Limpia un slot de favoritos.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3hsr_clear_fav [slot]"
+    },
+    {
+        "name": "join",
+        "category": "Game_uma",
+        "description": "Únete a la carrera actual.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3join"
+    },
+    {
+        "name": "invite",
+        "category": "Game_uma",
+        "description": "Invita a un usuario a competir.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3invite [usuario]"
+    },
+    {
+        "name": "start",
+        "category": "Game_uma",
+        "description": "Comienza la carrera (Solo anfitrión).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3start"
+    },
+    {
+        "name": "cancel",
+        "category": "Game_uma",
+        "description": "Cancela el lobby de carrera.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cancel"
+    },
+    {
+        "name": "gstart",
+        "category": "Giveaways",
+        "description": "Inicia un nuevo sorteo estelar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3gstart [duracion] [costo] [ganadores]"
+    },
+    {
+        "name": "greroll",
+        "category": "Giveaways",
+        "description": "Selecciona un nuevo ganador para un sorteo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3greroll [message_id]"
+    },
+    {
+        "name": "help",
+        "category": "Help",
+        "description": "Muestra la guía estelar de comandos.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3help [comando]"
+    },
+    {
+        "name": "invites",
+        "category": "Invites",
+        "description": "Consulta cuántas personas has guiado al servidor.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3invites"
+    },
+    {
+        "name": "top_invites",
+        "category": "Invites",
+        "description": "Ranking de los miembros que más han hecho crecer la comunidad.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3top_invites"
+    },
+    {
+        "name": "logros",
+        "category": "Logros",
+        "description": "Abre tu panel de medallas estelares.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3logros [usuario]"
+    },
+    {
+        "name": "admin_init_logros",
+        "category": "Logros",
+        "description": "Inicializa el sistema de logros en el servidor.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3admin_init_logros"
+    },
+    {
+        "name": "nuke",
+        "category": "Moderacion",
+        "description": "Despeja el canal clonándolo para eliminar la bruma acumulada.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3nuke"
+    },
+    {
+        "name": "lockdown",
+        "category": "Moderacion",
+        "description": "Cierra el envío de mensajes en el canal actual.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3lockdown"
+    },
+    {
+        "name": "warn",
+        "category": "Moderacion",
+        "description": "Advierte a un usuario por una infracción.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3warn [usuario] [nivel]"
+    },
+    {
+        "name": "warns",
+        "category": "Moderacion",
+        "description": "Muestra las advertencias acumuladas de un usuario.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3warns [usuario]"
+    },
+    {
+        "name": "clear",
+        "category": "Moderacion",
+        "description": "Limpia una cantidad específica de mensajes del canal.",
+        "aliases": [
+            "purge"
+        ],
+        "permissions": "Moderador",
+        "example": "<3clear [cantidad]"
+    },
+    {
+        "name": "ban",
+        "category": "Moderacion",
+        "description": "Banea a un usuario del servidor.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3ban [usuario]"
+    },
+    {
+        "name": "play",
+        "category": "Musica",
+        "description": "Reproduce música desde YouTube.",
+        "aliases": [
+            "p"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3play"
+    },
+    {
+        "name": "skip",
+        "category": "Musica",
+        "description": "Salta a la siguiente melodía.",
+        "aliases": [
+            "s"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3skip"
+    },
+    {
+        "name": "queue",
+        "category": "Musica",
+        "description": "Visualiza la lista de espera.",
+        "aliases": [
+            "q"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3queue"
+    },
+    {
+        "name": "stop",
+        "category": "Musica",
+        "description": "Detiene la música y retira al bot.",
+        "aliases": [
+            "leave"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3stop"
+    },
+    {
+        "name": "pause",
+        "category": "Musica",
+        "description": "Pausa la reproducción actual.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3pause"
+    },
+    {
+        "name": "resume",
+        "category": "Musica",
+        "description": "Continúa con la música pausada.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3resume"
+    },
+    {
+        "name": "shuffle",
+        "category": "Musica",
+        "description": "Mezcla las canciones de la cola.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3shuffle"
+    },
+    {
+        "name": "rank",
+        "category": "Niveles",
+        "description": "Muestra tu nivel y progreso estelar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3rank [usuario]"
+    },
+    {
+        "name": "leaderboard",
+        "category": "Niveles",
+        "description": "Ranking de los usuarios con mayor brillo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3leaderboard"
+    },
+    {
+        "name": "setup_roles",
+        "category": "Roles",
+        "description": "Despliega un panel estético de auto-roles.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_roles [titulo] [modo]"
+    },
+    {
+        "name": "profile",
+        "category": "Social",
+        "description": "Visualiza tu esencia y progreso estelar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3profile [usuario]"
+    },
+    {
+        "name": "marry",
+        "category": "Social",
+        "description": "Propón unir tu destino al de otra persona.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3marry [usuario]"
+    },
+    {
+        "name": "rep",
+        "category": "Social",
+        "description": "Otorga un destello de reputación.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3rep [usuario]"
+    },
+    {
+        "name": "divorce",
+        "category": "Social",
+        "description": "Anula tu matrimonio actual.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3divorce [usuario]"
+    },
+    {
+        "name": "set_color",
+        "category": "Social",
+        "description": "Personaliza el color de tu perfil estelar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3set_color [color]"
+    },
+    {
+        "name": "toggle_marry",
+        "category": "Social",
+        "description": "Alterna si aceptas o rechazas propuestas de matrimonio.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3toggle_marry"
+    },
+    {
+        "name": "vc_lock",
+        "category": "Tempvoice",
+        "description": "Cierra las puertas de tu refugio.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3vc_lock"
+    },
+    {
+        "name": "vc_unlock",
+        "category": "Tempvoice",
+        "description": "Abre tu refugio a otros viajeros.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3vc_unlock"
+    },
+    {
+        "name": "vc_kick",
+        "category": "Tempvoice",
+        "description": "Retira a un viajero de tu refugio.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3vc_kick [usuario]"
+    },
+    {
+        "name": "setup_vc_hub",
+        "category": "Tempvoice",
+        "description": "Define el canal Bóveda que manifestará los refugios.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_vc_hub [canal]"
+    },
+    {
+        "name": "setup_tickets",
+        "category": "Tickets",
+        "description": "Configura el sistema de tickets de soporte.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_tickets [categoria] [logs_id]"
+    },
+    {
+        "name": "ticket_panel",
+        "category": "Tickets",
+        "description": "Genera el panel interactivo para abrir tickets.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3ticket_panel [canal]"
+    },
+    {
+        "name": "cumple",
+        "category": "Utilidad",
+        "description": "Registra tu ciclo de nacimiento (DD/MM).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cumple [dia] [mes]"
+    },
+    {
+        "name": "ping",
+        "category": "Utilidad",
+        "description": "Muestra la sintonía de Lunae.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3ping"
+    },
+    {
+        "name": "server",
+        "category": "Utilidad",
+        "description": "Muestra los registros del servidor.",
+        "aliases": [
+            "info"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3server"
+    },
+    {
+        "name": "publicar_mapita",
+        "category": "Utilidad",
+        "description": "Publica la guía y vincula los registros para auto-actualización.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3publicar_mapita"
+    },
+    {
+        "name": "send_boost_info",
+        "category": "Utilidad",
+        "description": "Despliega la tabla de beneficios para quienes otorgan su brillo (Boosters).",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3send_boost_info"
+    },
+    {
+        "name": "setup_verification",
+        "category": "Verificacion",
+        "description": "Prepara el umbral de entrada al servidor.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_verification [rol] [canal]"
+    },
+    {
+        "name": "add_verify_role",
+        "category": "Verificacion",
+        "description": "Vincula una distinción (rol) adicional a la recompensa del umbral.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3add_verify_role [rol]"
+    }
+]
