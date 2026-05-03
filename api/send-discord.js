@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   });
 
   const discordPayload = {
-    content: "<@973223982985801773> ¡Tienes una nueva solicitud en la web! 🌸",
+    content: "<@&1500374741381419099> ¡Tienes una nueva solicitud en la web! 🌸",
     
     embeds: [{
       title: "Nueva Solicitud de Beta ♡",
