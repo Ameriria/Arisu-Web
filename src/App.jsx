@@ -8,7 +8,6 @@ import Terms from './pages/Terms'
 function App() {
   const location = useLocation();
   const [isLightMode, setIsLightMode] = useState(false);
-  // 👇 Aquí está el estado que controla si el menú de hamburguesa está abierto
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ function App() {
     }
   }, []);
 
-  // 👇 Esto cierra el menú móvil automáticamente si tocas un enlace
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
@@ -38,7 +36,6 @@ function App() {
 
   return (
     <>
-      {/* Añadimos boxSizing y controlamos el ancho máximo para evitar desbordes */}
       <nav className="navbar glass-panel" style={{
         borderRadius: 0,
         borderTop: 'none',
@@ -47,7 +44,7 @@ function App() {
         boxSizing: 'border-box',
         width: '100%',
         maxWidth: '100vw',
-        padding: '0.8rem 1.5rem', /* Padding seguro para móviles y PC */
+        padding: '0.8rem 1.5rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -68,10 +65,10 @@ function App() {
             <Link to="/docs" className={`nav-link ${location.pathname === '/docs' ? 'active' : ''}`}>Comandos</Link>
             <Link to="/terms" className={`nav-link ${location.pathname === '/terms' ? 'active' : ''}`}>Términos</Link>
             <a href="https://wiki.amai.cafe/Arisu" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Lore <ExternalLink size={14} /></a>
-            <a href="http://localhost:5000/" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
+            <a href="https://arisu.amai.cafe/#/" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
           </div>
 
-          {/* Botón de Tema (SIEMPRE VISIBLE) */}
+          {/* Botón de Tema */}
           <button
             onClick={toggleTheme}
             style={{
@@ -122,7 +119,7 @@ function App() {
         <div className="container">
           <p style={{ color: 'var(--text-secondary)' }}>© {new Date().getFullYear()} Arisu. Desarrollado por <a href="https://github.com/Ameriria" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>@Ameriria</a> con <span style={{ color: 'var(--primary)' }}>❤</span> para Discord. | Contacto: <a href="mailto:hola@ameriria.com" style={{ color: 'var(--primary)' }}>hola@ameriria.com</a> ♡</p>
           <div className="footer-links" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem', alignItems: 'center' }}>
-            <a href="http://localhost:5000/" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
+            <a href="https://arisu.amai.cafe/#/" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
             <Link to="/terms" className="footer-link">Términos de Servicio</Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>

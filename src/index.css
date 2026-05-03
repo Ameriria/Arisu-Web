@@ -1,7 +1,5 @@
 :root {
-  /* Colors (Dark Mode - Pink Aesthetic) */
   --bg-color: #1e1315;
-  /* Dark maroon/brown */
   --bg-secondary: #2a1a1d;
   --bg-glass: rgba(42, 26, 29, 0.7);
   --bg-glass-hover: rgba(84, 52, 59, 0.5);
@@ -11,7 +9,6 @@
   --text-muted: #e697b1;
 
   --primary: #fdc2d5;
-  /* Soft Pink */
   --primary-glow: rgba(253, 194, 213, 0.2);
   --secondary: #f8adc5;
   --secondary-glow: rgba(248, 173, 197, 0.2);
@@ -24,8 +21,8 @@
   --selection-color: var(--text-primary);
 
   /* Typography */
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
 
   /* Radii */
   --radius-sm: 8px;
@@ -43,7 +40,6 @@
 }
 
 [data-theme="light"] {
-  /* Colors (Light Mode - Pink Aesthetic) */
   --bg-color: #fcfdfc;
   --bg-secondary: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.8);
@@ -84,7 +80,6 @@ body {
   min-height: 100vh;
 }
 
-/* Base de layout para mantener el footer al fondo */
 #root {
   display: flex;
   flex-direction: column;
@@ -111,7 +106,9 @@ h6 {
   transform: translateY(-50%);
   padding-right: 0.25em;
   opacity: 0;
-  transition: opacity var(--transition-fast), color var(--transition-fast);
+  transition:
+    opacity var(--transition-fast),
+    color var(--transition-fast);
   text-decoration: none;
   font-size: 0.7em;
 }
@@ -141,7 +138,12 @@ a:hover {
 
 /* Utilities */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -243,7 +245,6 @@ a:hover {
 
 .hamburger-btn {
   display: none !important;
-  /* Oculto en escritorio */
 }
 
 .nav-links {
@@ -266,7 +267,7 @@ a:hover {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -283,17 +284,14 @@ a:hover {
 
 .footer {
   margin-top: auto;
-  /* Empuja el footer al fondo si hay poco contenido */
   padding: 3rem 2rem;
   border-top: 1px solid var(--border-color);
   text-align: center;
   color: var(--text-muted);
 }
 
-/* Main Content Wrapper */
 .main-content {
   flex: 1;
-  /* Ocupa el espacio disponible */
   padding-top: 100px;
   min-height: calc(100vh - 150px);
 }
@@ -375,7 +373,9 @@ a:hover {
 .feature-card:hover {
   transform: translateY(-5px);
   border-color: var(--primary);
-  box-shadow: 0 10px 30px var(--shadow-hover), 0 0 15px var(--primary-glow);
+  box-shadow:
+    0 10px 30px var(--shadow-hover),
+    0 0 15px var(--primary-glow);
 }
 
 .feature-icon {
@@ -390,7 +390,6 @@ a:hover {
   font-size: 1.5rem;
 }
 
-/* Docs Layout (Gitbook / Mintlify Style) */
 .docs-gitbook-container {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr) 220px;
@@ -527,7 +526,6 @@ a:hover {
 .docs-section {
   margin-bottom: 4rem;
   scroll-margin-top: 100px;
-  /* Important for anchor links */
 }
 
 .section-title {
@@ -547,7 +545,6 @@ a:hover {
   gap: 1.5rem;
 }
 
-/* API Block Styling (Mintlify feel) */
 .api-block {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -580,7 +577,7 @@ a:hover {
 }
 
 .api-endpoint {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -633,7 +630,7 @@ a:hover {
 }
 
 .code-block {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.85rem;
   background: var(--bg-color);
   padding: 0.2rem 0.5rem;
@@ -732,7 +729,7 @@ a:hover {
 }
 
 .toc-container a.active::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -1px;
   top: 0;
@@ -825,7 +822,9 @@ a:hover {
 .footer-link {
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    text-decoration-color var(--transition-fast);
   text-decoration-color: transparent;
 }
 
@@ -903,35 +902,26 @@ a:hover {
 
   .docs-sidebar-right {
     display: none;
-    /* Ocultamos la tabla de contenidos en móvil para no saturar */
   }
 
   .terms-content {
     padding: 1.5rem;
   }
 
-  /* --- Navbar Móvil con Menú Hamburguesa --- */
   .hamburger-btn {
     display: flex !important;
   }
 
-  /* El nav-links se convierte en un menú desplegable flotante */
-  /* El nav-links se convierte en un menú de pantalla completa difuminado */
   .nav-links {
     display: none;
     position: absolute;
     top: 70px;
-    /* Empieza justo debajo de la barra de navegación */
     left: 0;
     width: 100%;
     height: calc(100vh - 70px);
-    /* Ocupa todo el alto sobrante de la pantalla */
-
-    /* El truco del difuminado intenso */
     background: var(--bg-glass);
     backdrop-filter: blur(24px) brightness(0.9);
     -webkit-backdrop-filter: blur(24px) brightness(0.9);
-
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
@@ -950,7 +940,6 @@ a:hover {
 
   .footer .footer-links span {
     display: none;
-    /* Oculta los puntitos separadores */
   }
 }
 
