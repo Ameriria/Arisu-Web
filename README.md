@@ -1,3 +1,5 @@
+<h1 align="center">Arisu ♡ Web Project</h1>
+
 <h4 align="center">
   → <a href="https://arisu.amai.cafe/" target="_blank">LIVE PAGE</a> ←
 </h4>
@@ -9,7 +11,7 @@
 
 ## About the Project
 
-This is the official landing page and documentation site for **Arisu**, a multifunctional and aesthetic Discord bot.
+This is the official landing page and documentation site for **Arisu**, a multifunctional and aesthetic Discord bot. The design and documentation layout are heavily inspired by modern platforms like GitBook and Mintlify, aiming to provide a clean, intuitive, and beautiful user experience.
 
 ### Built with React + Vite
 
@@ -40,7 +42,7 @@ Feel free to reach out if you have any questions, want to collaborate, or just w
 
 ## Sobre el Proyecto
 
-Esta es la página principal y el sitio de documentación oficial de **Arisu**, un bot de Discord multifuncional y estético.
+Esta es la página principal y el sitio de documentación oficial de **Arisu**, un bot de Discord multifuncional y estético. El diseño y la estructura de la documentación están fuertemente inspirados en plataformas modernas como GitBook y Mintlify, buscando ofrecer una experiencia de usuario limpia, intuitiva y hermosa.
 
 ### Construido con React + Vite
 
