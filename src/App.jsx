@@ -117,7 +117,7 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <p style={{ color: 'var(--text-secondary)' }}>© {new Date().getFullYear()} Arisu. Desarrollado por <a href="https://github.com/Ameriria" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>@Ameriria</a> con <span style={{ color: 'var(--primary)' }}>❤</span> para Discord. | Contacto: <a href="mailto:hola@ameriria.com" style={{ color: 'var(--primary)' }}>hola@ameriria.com</a> ♡</p>
+          <p style={{ color: 'var(--text-secondary)' }}>© {new Date().getFullYear()} Arisu. Desarrollado por <a href="https://github.com/Ameriria" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>@Ameriria</a> con <span style={{ color: 'var(--primary)' }}>&#x2665;&#xFE0E;</span> para Discord. | Contacto: <a href="mailto:hola@ameriria.com" style={{ color: 'var(--primary)' }}>hola@ameriria.com</a> ♡</p>
           <div className="footer-links" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem', alignItems: 'center' }}>
             <a href="https://arisu.amai.cafe/#/" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
