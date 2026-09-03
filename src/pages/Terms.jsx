@@ -1,17 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const Terms = () => {
+// Subcomponente para transiciones suaves (idéntico al usado en Commands.jsx / Docs.jsx / Privacy.jsx,
+// para que todas las páginas de la doc/legales compartan la misma animación de entrada).
+const FadeInSection = ({ children, delay = 0 }) => {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    const currentRef = domRef.current;
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, []);
+
   return (
-    <div className="container terms-container">
-      <div className="terms-content">
-        <h1 id="terminos-y-privacidad"><a href="#terminos-y-privacidad" className="hash-anchor">#</a>Términos de Servicio</h1>
-        <span className="last-updated">Última actualización: {new Date().toLocaleDateString('es-ES')}</span>
+    <div
+      ref={domRef}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'none' : 'translateY(20px)',
+        transition: `opacity 0.6s ease-out ${delay}s, transform 0.6s ease-out ${delay}s`,
+        willChange: 'opacity, transform'
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
-        <p>
-          Al invitar y utilizar Arisu en tu servidor de Discord, aceptas los siguientes Términos de Servicio y Política de Privacidad. Si no estás de acuerdo con alguno de estos términos, no debes utilizar el bot.
-        </p>
-
-        <h2 id="uso-del-servicio"><a href="#uso-del-servicio" className="hash-anchor">#</a>1. Uso del Servicio</h2>
+const SECTIONS = [
+  {
+    id: 'uso-del-servicio',
+    title: '1. Uso del Servicio',
+    content: (
+      <>
         <p>
           Arisu se proporciona como una herramienta para mejorar la gestión, automatización e interacción dentro de servidores de Discord.
         </p>
@@ -20,8 +53,14 @@ const Terms = () => {
           <li>No debes utilizar Arisu para actividades ilegales, abusivas o dañinas.</li>
           <li>No debes interferir ni comprometer el funcionamiento del bot.</li>
         </ul>
-
-        <h2 id="uso-indebido"><a href="#uso-indebido" className="hash-anchor">#</a>2. Uso indebido</h2>
+      </>
+    )
+  },
+  {
+    id: 'uso-indebido',
+    title: '2. Uso indebido',
+    content: (
+      <>
         <p>
           Está prohibido el uso indebido del bot, incluyendo:
         </p>
@@ -34,8 +73,14 @@ const Terms = () => {
         <p>
           Nos reservamos el derecho de limitar o bloquear el acceso al bot en caso de incumplimiento.
         </p>
-
-        <h2 id="economia-virtual"><a href="#economia-virtual" className="hash-anchor">#</a>3. Economía Virtual</h2>
+      </>
+    )
+  },
+  {
+    id: 'economia-virtual',
+    title: '3. Economía Virtual',
+    content: (
+      <>
         <p>
           Arisu incluye sistemas de economía virtual, como monedas y objetos digitales.
         </p>
@@ -44,111 +89,124 @@ const Terms = () => {
           <li>Los saldos y objetos pueden modificarse, reiniciarse o eliminarse en caso de errores, exploits o actualizaciones.</li>
           <li>No se garantiza la permanencia del progreso.</li>
         </ul>
-
-        <h2 id="ia"><a href="#ia" className="hash-anchor">#</a>4. Uso de la IA</h2>
+      </>
+    )
+  },
+  {
+    id: 'suscripciones-y-reembolsos',
+    title: '4. Suscripciones y Reembolsos',
+    content: (
+      <>
         <p>
-          Arisu incluye funciones de inteligencia artificial que permiten generar respuestas y mantener conversaciones.
+          Arisu ofrece características adicionales y límites ampliados mediante servicios de pago, estructurados en dos niveles de suscripción: <strong>Sweet</strong> y <strong>Nectar</strong>.
         </p>
         <ul>
-          <li>Eres responsable del contenido que envías y generas mediante la IA.</li>
-          <li>No debes utilizar la IA para contenido que viole las normas de Discord o leyes aplicables.</li>
-          <li>Las respuestas generadas pueden ser inexactas o no deseadas.</li>
+          <li><strong>Naturaleza digital:</strong> Debido a que los niveles Sweet y Nectar otorgan acceso a bienes y ventajas digitales, todas las compras son definitivas. No se ofrecen reembolsos una vez que el pago ha sido procesado.</li>
+          <li><strong>Cancelaciones:</strong> Puedes cancelar tu suscripción en cualquier momento. Seguirás teniendo acceso a los beneficios de tu nivel hasta que finalice tu ciclo de facturación actual.</li>
+          <li><strong>Excepciones:</strong> Solo se considerarán reembolsos a nuestra total discreción en circunstancias muy excepcionales (por ejemplo, cobros duplicados por error del sistema).</li>
+          <li><strong>Modificaciones:</strong> Nos reservamos el derecho de ajustar el precio o las características incluidas en los niveles Sweet y Nectar en cualquier momento, lo cual será notificado previamente.</li>
         </ul>
+      </>
+    )
+  },
+  {
+    id: 'ia-y-desarrollo',
+    title: '5. Uso de IA y Desarrollo',
+    content: (
+      <>
         <p>
-          Nos reservamos el derecho de limitar o restringir el acceso a estas funciones en caso de uso indebido.
+          Arisu incluye funciones de inteligencia artificial que permiten generar respuestas y mantener conversaciones. Adicionalmente, el bot en sí ha sido construido utilizando estas tecnologías.
         </p>
-
-        <h2 id="disponibilidad"><a href="#disponibilidad" className="hash-anchor">#</a>5. Disponibilidad</h2>
+        <ul>
+          <li><strong>Desarrollo asistido:</strong> Al utilizar Arisu, comprendes y aceptas que su código base, estructura y algunas de sus funciones han sido programadas con la asistencia de Inteligencia Artificial.</li>
+          <li><strong>Responsabilidad del usuario:</strong> Eres responsable del contenido que envías y generas mediante las funciones de IA.</li>
+          <li><strong>Restricciones de uso:</strong> No debes utilizar la IA para generar contenido que viole las normas de Discord o las leyes aplicables.</li>
+          <li><strong>Precaución con los resultados:</strong> Las respuestas generadas por la IA pueden ser inexactas, inesperadas o no deseadas.</li>
+        </ul>
+      </>
+    )
+  },
+  {
+    id: 'disponibilidad',
+    title: '6. Disponibilidad',
+    content: (
+      <>
         <p>
           Arisu se proporciona "tal cual" y no garantiza disponibilidad continua. El servicio puede interrumpirse por mantenimiento, actualizaciones o fallos técnicos.
         </p>
         <p>
           No somos responsables por interrupciones, pérdida de datos o configuraciones durante estos periodos.
         </p>
-
-        <h2 id="responsabilidad"><a href="#responsabilidad" className="hash-anchor">#</a>6. Responsabilidad</h2>
+      </>
+    )
+  },
+  {
+    id: 'responsabilidad',
+    title: '7. Responsabilidad',
+    content: (
+      <>
         <p>
           El uso del bot es bajo tu propio riesgo. No nos hacemos responsables por daños directos o indirectos derivados del uso de Arisu.
         </p>
         <p>
           Eres responsable de cómo utilizas y configuras el bot en tu servidor.
         </p>
-
-        <h2 id="edad-minima"><a href="#edad-minima" className="hash-anchor">#</a>7. Edad mínima</h2>
+      </>
+    )
+  },
+  {
+    id: 'edad-minima',
+    title: '8. Edad mínima',
+    content: (
+      <>
         <p>
           Debes cumplir con la edad mínima requerida por Discord en tu país (generalmente 13 años) para utilizar Arisu.
         </p>
         <p>
           Al usar el bot, confirmas que cumples con este requisito.
         </p>
+      </>
+    )
+  },
+  {
+    id: 'cambios-en-el-servicio',
+    title: '9. Cambios en el Servicio',
+    content: (
+      <p>
+        Arisu puede añadir, modificar o eliminar funciones en cualquier momento, incluyendo cambios en sistemas existentes.
+      </p>
+    )
+  },
+  {
+    id: 'cambios-en-los-terminos',
+    title: '10. Cambios en los Términos',
+    content: (
+      <p>
+        Estos términos pueden actualizarse en cualquier momento. El uso continuado del bot implica la aceptación de los cambios.
+      </p>
+    )
+  }
+];
 
-        <h2 id="cambios-en-el-servicio"><a href="#cambios-en-el-servicio" className="hash-anchor">#</a>8. Cambios en el Servicio</h2>
-        <p>
-          Arisu puede añadir, modificar o eliminar funciones en cualquier momento, incluyendo cambios en sistemas existentes.
-        </p>
+const Terms = () => {
+  return (
+    <div className="container terms-container">
+      <div className="terms-content">
+        <FadeInSection>
+          <h1 id="terminos-de-servicio"><a href="#terminos-de-servicio" className="hash-anchor">#</a>Términos de Servicio</h1>
+          <span className="last-updated">Última actualización: {new Date().toLocaleDateString('es-ES')}</span>
 
-        <h2 id="cambios-en-los-terminos"><a href="#cambios-en-los-terminos" className="hash-anchor">#</a>9. Cambios en los Términos</h2>
-        <p>
-          Estos términos pueden actualizarse en cualquier momento. El uso continuado del bot implica la aceptación de los cambios.
-        </p>
+          <p>
+            Al invitar y utilizar Arisu en tu servidor de Discord, aceptas los siguientes Términos de Servicio. Si no estás de acuerdo con alguno de estos términos, no debes utilizar el bot.
+          </p>
+        </FadeInSection>
 
-        <h1 id="politica-de-privacidad"><a href="#politica-de-privacidad" className="hash-anchor">#</a>Política de Privacidad</h1>
-        <span className="last-updated">Última actualización: {new Date().toLocaleDateString('es-ES')}</span>
-
-        <p>
-          Arisu recopila y utiliza únicamente la información necesaria para su funcionamiento. Al utilizar el bot, aceptas las prácticas descritas en esta política.
-        </p>
-
-        <h2 id="informacion-recopilada"><a href="#informacion-recopilada" className="hash-anchor">#</a>1. Información recopilada</h2>
-        <ul>
-          <li>ID de usuario de Discord.</li>
-          <li>ID de servidor, canales y roles.</li>
-          <li>Configuración del servidor.</li>
-          <li>Datos de economía y progreso.</li>
-          <li>Comandos ejecutados.</li>
-        </ul>
-
-        <h2 id="uso-de-la-informacion"><a href="#uso-de-la-informacion" className="hash-anchor">#</a>2. Uso de la información</h2>
-        <ul>
-          <li>Proporcionar y mantener las funciones del bot.</li>
-          <li>Gestionar sistemas como economía, moderación y automatización.</li>
-          <li>Mejorar la experiencia del usuario.</li>
-          <li>Prevenir abusos o uso indebido.</li>
-        </ul>
-
-        <h2 id="contenido-de-mensajes"><a href="#contenido-de-mensajes" className="hash-anchor">#</a>3. Contenido de mensajes</h2>
-        <p>
-          El contenido de mensajes puede ser procesado cuando es necesario para funciones específicas, como inteligencia artificial, confesiones u otros sistemas interactivos.
-        </p>
-        <p>
-          Este contenido no se almacena permanentemente, salvo que la funcionalidad lo requiera explícitamente o haya sido configurado por el servidor.
-        </p>
-
-        <h2 id="retencion-de-datos"><a href="#retencion-de-datos" className="hash-anchor">#</a>4. Retención de datos</h2>
-        <p>
-          Los datos se conservan mientras sean necesarios para el funcionamiento del bot. La configuración del servidor se elimina cuando Arisu es retirado del mismo, aunque algunos datos pueden persistir temporalmente por motivos técnicos o de respaldo.
-        </p>
-
-        <h2 id="comparticion-de-datos"><a href="#comparticion-de-datos" className="hash-anchor">#</a>5. Compartición de datos</h2>
-        <p>
-          No vendemos, alquilamos ni compartimos datos personales con terceros. Solo se compartirán datos si es requerido por ley o para cumplir obligaciones legales.
-        </p>
-
-        <h2 id="derechos-del-usuario"><a href="#derechos-del-usuario" className="hash-anchor">#</a>6. Derechos del usuario</h2>
-        <p>
-          Puedes solicitar el acceso, corrección o eliminación de tus datos en cualquier momento a través del servidor de soporte.
-        </p>
-
-        <h2 id="seguridad"><a href="#seguridad" className="hash-anchor">#</a>7. Seguridad</h2>
-        <p>
-          Se aplican medidas razonables para proteger la información almacenada. Sin embargo, no se puede garantizar seguridad absoluta frente a accesos no autorizados.
-        </p>
-
-        <h2 id="cambios-en-la-politica"><a href="#cambios-en-la-politica" className="hash-anchor">#</a>8. Cambios en la Política</h2>
-        <p>
-          Esta política puede actualizarse en cualquier momento. El uso continuado del bot después de los cambios implica la aceptación de la versión actualizada.
-        </p>
-
+        {SECTIONS.map((section, index) => (
+          <FadeInSection key={section.id} delay={Math.min(index * 0.08, 0.4)}>
+            <h2 id={section.id}><a href={`#${section.id}`} className="hash-anchor">#</a>{section.title}</h2>
+            {section.content}
+          </FadeInSection>
+        ))}
       </div>
     </div>
   );

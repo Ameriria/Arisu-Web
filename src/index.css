@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;700&display=swap");
+
 :root {
   --bg-color: #1e1315;
   --bg-secondary: #2a1a1d;
-  --bg-glass: rgba(42, 26, 29, 0.7);
-  --bg-glass-hover: rgba(84, 52, 59, 0.5);
+  /* Reemplazado por colores sólidos para evitar sobreposición visual al quitar el blur */
+  --bg-glass: #26181b;
+  --bg-glass-hover: #2d1c21;
 
   --text-primary: #fff0f5;
   --text-secondary: #ffcce0;
@@ -20,9 +23,9 @@
   --selection-bg: rgba(253, 194, 213, 0.3);
   --selection-color: var(--text-primary);
 
-  /* Typography */
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* Typography (Fuentes globales aplicadas) */
+  --font-heading: "Quicksand", sans-serif;
+  --font-body: "Nunito", sans-serif;
 
   /* Radii */
   --radius-sm: 8px;
@@ -37,13 +40,18 @@
   /* Shadows */
   --shadow-color: rgba(0, 0, 0, 0.3);
   --shadow-hover: rgba(0, 0, 0, 0.5);
+
+  /* Docs page sticky offsets (navbar height + breathing room) */
+  --docs-sticky-offset: 90px;
+  --docs-section-title-height: 3.75rem;
 }
 
 [data-theme="light"] {
   --bg-color: #fcfdfc;
   --bg-secondary: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.8);
-  --bg-glass-hover: rgba(255, 240, 245, 0.9);
+  /* Colores sólidos para el tema claro */
+  --bg-glass: #ffffff;
+  --bg-glass-hover: #fff0f5;
 
   --text-primary: #54343b;
   --text-secondary: #786a6d;
@@ -169,8 +177,6 @@ a:hover {
 
 .glass-panel {
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 32px var(--shadow-color);
@@ -231,14 +237,12 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
   transition: all var(--transition-normal);
 }
@@ -404,13 +408,16 @@ a:hover {
 /* Left Sidebar */
 .docs-sidebar-left {
   position: sticky;
-  top: 90px;
+  top: var(--docs-sticky-offset);
   height: calc(100vh - 110px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding-right: 1rem;
   border-right: 1px solid var(--border-color);
+  /* Acompaña en velocidad la transición de padding de .navbar (App.jsx)
+     al encogerse en scroll, para que --docs-sticky-offset no "salte". */
+  transition: top 0.3s ease-in-out;
 }
 
 .docs-sidebar-left::-webkit-scrollbar {
@@ -420,6 +427,34 @@ a:hover {
 .docs-sidebar-left::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: 4px;
+}
+
+/* Botón "hamburguesa" del menú de Módulos. Oculto en desktop; se activa
+   dentro del media query mobile de más abajo. */
+.mobile-nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mobile-nav-toggle-current {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* En desktop, este wrapper no debe alterar el layout flex de
+   .docs-sidebar-left: sus hijos (.sidebar-search y .sidebar-nav) se
+   comportan como si fueran hijos directos del aside. */
+.sidebar-panel {
+  display: contents;
 }
 
 .sidebar-search {
@@ -496,6 +531,12 @@ a:hover {
   color: var(--text-muted);
 }
 
+.nav-count {
+  margin-left: auto;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+
 .nav-link-item.active .category-icon {
   color: var(--primary);
 }
@@ -531,12 +572,26 @@ a:hover {
 .section-title {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
   color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  /* Sticky header for each subcategory */
+  position: sticky;
+  top: var(--docs-sticky-offset);
+  z-index: 20;
+  background: var(--bg-color);
+  /* Padding is symmetric on purpose: .hash-anchor centers itself with
+     top: 50% relative to this box, so asymmetric padding would push it
+     out of alignment with the heading text. */
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  /* Extiende el fondo sólido hacia arriba sin afectar el layout, para que
+     no se asome contenido detrás si hay algún desfase de 1-2px al scrollear */
+  box-shadow: 0 -40px 0 var(--bg-color);
+  /* Acompaña en velocidad la transición de padding de .navbar (App.jsx)
+     al encogerse en scroll, para que --docs-sticky-offset no "salte". */
+  transition: top 0.3s ease-in-out;
 }
 
 .section-commands {
@@ -639,16 +694,55 @@ a:hover {
   border: 1px solid var(--border-color);
 }
 
+/* Botón chiquito para copiar un comando con un click, al lado del
+   code-block correspondiente. */
+.inline-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.inline-copy-btn:hover {
+  color: var(--primary);
+  background: var(--primary-glow);
+  border-color: var(--border-color);
+}
+
+.inline-copy-btn.copied {
+  color: var(--primary);
+}
+
 /* Docs Table Styling */
 .table-container {
   width: 100%;
-  overflow-x: auto;
+  /* OJO: no pongas overflow-x sin overflow-y (o viceversa) acá. El spec de
+     CSS fuerza el eje que quede en "visible" a "auto" cuando el otro no lo
+     es, así que este contenedor se convertía en su propio scroll-container
+     y el thead sticky de abajo terminaba pegándose respecto a ESTA caja
+     (no al viewport) — por eso "flotaba" a mitad de tabla. Las columnas
+     entran bien en los 800px de .docs-main-content, así que no hace falta
+     scroll horizontal acá. Si en algún momento lo necesitas, agrégalo
+     dentro del media query mobile, no acá.
+  */
   margin-top: 1rem;
 }
 
 .docs-table {
   width: 100%;
-  border-collapse: collapse;
+  /* separate (no collapse) es necesario para que position:sticky en los
+     <th> funcione de forma consistente entre navegadores */
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
 }
 
@@ -667,10 +761,35 @@ a:hover {
   color: var(--text-muted);
   font-weight: 500;
   font-size: 0.8rem;
+  /* Un poco más de padding vertical = más superficie sólida cubriendo */
+  padding: 12px 4px;
+  /* Sticky column headers, pinned just below the sticky section title */
+  position: sticky;
+  top: calc(var(--docs-sticky-offset) + var(--docs-section-title-height));
+  z-index: 15;
+  background: var(--bg-color);
+  /* Extiende el fondo hacia arriba para tapar cualquier fila que se asome
+     por un desfase de subpíxel entre este offset y el del section-title */
+  box-shadow: 0 -40px 0 var(--bg-color);
+  transition: top 0.3s ease-in-out;
 }
 
 .docs-table tr:last-child td {
   border-bottom: none;
+}
+
+.docs-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.docs-table tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* En modo claro, --bg-secondary es blanco puro (igual al fondo de la
+   tabla), así que el hover no se notaba. Usamos un rosita clarito. */
+[data-theme="light"] .docs-table tbody tr:hover {
+  background-color: var(--primary-glow);
 }
 
 .badge-access {
@@ -682,16 +801,28 @@ a:hover {
 /* Right Sidebar (TOC) */
 .docs-sidebar-right {
   position: sticky;
-  top: 90px;
-  height: calc(100vh - 110px);
+  top: var(--docs-sticky-offset);
+  /* Antes: height: calc(100vh - 110px) fijo, casi toda la altura del
+     viewport desde el inicio. Como position:sticky se "despega" apenas
+     el contenedor le queda menos espacio abajo que su propia altura, una
+     caja tan alta se despegaba mientras todavía estabas leyendo la
+     última subcategoría. Con height:auto + max-height, la caja solo mide
+     lo que su contenido realmente ocupa (normalmente mucho menos que el
+     viewport), así que se mantiene pegada durante todo el scroll. */
+  height: auto;
+  max-height: calc(100vh - var(--docs-sticky-offset) - 24px);
   padding-left: 1rem;
+  transition:
+    top 0.3s ease-in-out,
+    max-height 0.3s ease-in-out;
 }
 
 .toc-container {
   padding-top: 1rem;
-  position: sticky;
-  top: 90px;
-  max-height: calc(100vh - 110px);
+  /* No position:sticky here on purpose — .docs-sidebar-right already
+     sticks the whole aside. A second nested sticky with the same
+     top/height was fighting with it and breaking the TOC on scroll. */
+  max-height: 100%;
   overflow-y: auto;
 }
 
@@ -842,9 +973,7 @@ a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -881,6 +1010,22 @@ a:hover {
 }
 
 /* =========================================
+   ACORDEÓN (MODAL DE CARACTERÍSTICAS)
+   ========================================= */
+.accordions-container button {
+  font-family: "Quicksand", sans-serif !important;
+}
+
+.accordions-container p,
+.accordions-container ul {
+  font-family: "Nunito", sans-serif;
+}
+
+.accordions-container p {
+  text-align: justify;
+}
+
+/* =========================================
    DISEÑO RESPONSIVE GLOBAL
    ========================================= */
 @media (max-width: 768px) {
@@ -890,18 +1035,162 @@ a:hover {
 
   .docs-gitbook-container {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
   }
 
+  /* --- Módulos: de lista larga y estática a menú "hamburguesa" --- */
   .docs-sidebar-left {
     position: static;
     height: auto;
     border-right: none;
     padding-right: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    position: fixed;
+    top: var(--docs-sticky-offset);
+    left: 0;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--bg-glass);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    z-index: 40;
+    transition: top 0.3s ease-in-out;
+  }
+
+  /* El botón queda fixed (fuera del flujo), así que se mantiene visible
+     siempre al hacer scroll, sin importar cuánto contenido tenga encima. */
+  .sidebar-panel {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc(var(--docs-sticky-offset) + 3.5rem);
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    background: var(--bg-color);
+    border-bottom: 1px solid transparent;
+    z-index: 39;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .sidebar-panel.open {
+    max-height: calc(100vh - var(--docs-sticky-offset) - 3.5rem);
+    opacity: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    border-bottom-color: var(--border-color);
+    box-shadow: 0 12px 24px var(--shadow-color);
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .sidebar-panel.open .sidebar-search {
+    margin-top: 0;
+  }
+
+  /* Deja espacio arriba para que el título de la página no quede tapado
+     por el botón hamburguesa fijo. */
+  .docs-main-content {
+    padding-top: calc(var(--docs-sticky-offset) + 4.5rem);
+    transition: padding-top 0.3s ease-in-out;
+  }
+
+  /* El título de cada sección también es sticky (para acompañar el scroll
+     de la tabla); lo bajamos para que no quede debajo del botón fijo. */
+  .section-title {
+    top: calc(var(--docs-sticky-offset) + 3.5rem);
   }
 
   .docs-sidebar-right {
     display: none;
+  }
+
+  /* --- Tabla de comandos: de tabla ancha a tarjetas apiladas ---
+     Con 4 columnas (Comando, Ejemplo, Acceso, Descripción) el scroll
+     horizontal es incómodo en pantallas chicas; apilamos cada fila como
+     una tarjeta y usamos el atributo data-label (agregado en el JSX)
+     para mostrar el nombre de cada columna. */
+  .table-container {
+    overflow-x: visible;
+  }
+
+  .docs-table thead {
+    display: none;
+  }
+
+  .docs-table,
+  .docs-table tbody,
+  .docs-table tr,
+  .docs-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .docs-table tbody tr {
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+  }
+
+  .docs-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .docs-table tbody tr:hover,
+  [data-theme="light"] .docs-table tbody tr:hover {
+    background-color: var(--bg-secondary);
+  }
+
+  .docs-table td {
+    padding: 0.4rem 0;
+    border-bottom: none;
+  }
+
+  .docs-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  /* La primera celda (el comando) funciona como "encabezado" de la
+     tarjeta: la resaltamos en rosa y la separamos con una línea, para que
+     al bajar rápido por la lista se note claramente dónde empieza cada
+     comando nuevo, en vez de verse como texto plano continuo. */
+  .docs-table tbody tr td:first-child {
+    padding-top: 0;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  .docs-table tbody tr td:first-child .code-block {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-glow);
+    border-color: var(--border-focus);
   }
 
   .terms-content {
@@ -919,9 +1208,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: calc(100vh - 70px);
-    background: var(--bg-glass);
-    backdrop-filter: blur(24px) brightness(0.9);
-    -webkit-backdrop-filter: blur(24px) brightness(0.9);
+    background: var(--bg-color);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;

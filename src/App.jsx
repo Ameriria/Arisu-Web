@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
-import { Bot, Sun, Moon, ExternalLink, Menu, X } from 'lucide-react'
+import { Sun, Moon, ExternalLink, Menu, X } from 'lucide-react'
 import Home from './pages/Home'
 import Docs from './pages/Docs'
 import Terms from './pages/Terms'
+import Commands from './pages/Commands'
+import Privacy from './pages/Privacy'
 
 function App() {
   const location = useLocation();
   const [isLightMode, setIsLightMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Nuevo estado para detectar si el usuario ha hecho scroll
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -16,10 +21,27 @@ function App() {
       setIsLightMode(true);
       document.documentElement.setAttribute('data-theme', 'light');
     }
+
+    // Lógica para detectar el scroll
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Al cambiar de página: cerramos el menú móvil (si estaba abierto) y
+  // reseteamos el scroll al top. Sin esto, una SPA conserva el scrollY de
+  // la página anterior (p.ej. si scrolleaste hasta el final de Términos y
+  // después vas a Inicio, aparecería abajo del todo en vez de arriba).
   useEffect(() => {
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   const toggleTheme = () => {
@@ -44,15 +66,23 @@ function App() {
         boxSizing: 'border-box',
         width: '100%',
         maxWidth: '100vw',
-        padding: '0.8rem 1.5rem',
+        // Aquí hacemos la magia: Si hay scroll, el padding se reduce de 0.8rem a 0.4rem
+        padding: isScrolled ? '0.4rem 1.5rem' : '0.8rem 1.5rem',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        // Aseguramos una transición suave
+        transition: 'padding 0.3s ease-in-out, background-color 0.3s ease-in-out'
       }}>
 
         {/* Lado Izquierdo: Logo */}
         <Link to="/" className="nav-link" style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <img src="/Arisu-logo-a.svg" alt="Arisu Logo" style={{ width: 28, height: 28 }} />
+          <img src="/Arisu-logo-a.svg" alt="Arisu Logo" style={{ 
+            // También achicamos un poquito el logo al hacer scroll para que no se vea apretado
+            width: isScrolled ? 24 : 28, 
+            height: isScrolled ? 24 : 28,
+            transition: 'all 0.3s ease-in-out'
+          }} />
           Arisu
         </Link>
 
@@ -62,8 +92,11 @@ function App() {
           {/* Enlaces (Se ocultan en móvil) */}
           <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
             <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Inicio</Link>
-            <Link to="/docs" className={`nav-link ${location.pathname === '/docs' ? 'active' : ''}`}>Comandos</Link>
+            <Link to="/commands" className={`nav-link ${location.pathname === '/commands' ? 'active' : ''}`}>Comandos</Link>
+            <Link to="/docs" className={`nav-link ${location.pathname === '/docs' ? 'active' : ''}`}>Documentación</Link>
             <Link to="/terms" className={`nav-link ${location.pathname === '/terms' ? 'active' : ''}`}>Términos</Link>
+            <Link to="/privacy" className={`nav-link ${location.pathname === '/privacy' ? 'active' : ''}`}>Privacidad</Link>
+            
             <a href="https://wiki.amai.cafe/Arisu" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Lore <ExternalLink size={14} /></a>
             <a href="https://arisu.amai.cafe/#/" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
           </div>
@@ -110,20 +143,24 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/commands" element={<Commands />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
 
       <footer className="footer">
         <div className="container">
           <p style={{ color: 'var(--text-secondary)' }}>© {new Date().getFullYear()} Arisu. Desarrollado por <a href="https://github.com/Ameriria" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>@Ameriria</a> con <span style={{ color: 'var(--primary)' }}>&#x2665;&#xFE0E;</span> para Discord. | Contacto: <a href="mailto:hola@ameriria.com" style={{ color: 'var(--primary)' }}>hola@ameriria.com</a> ♡</p>
-          <div className="footer-links" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem', alignItems: 'center' }}>
+          <div className="footer-links" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <a href="https://arisu.amai.cafe/#/" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>Dashboard <ExternalLink size={14} /></a>
+            <span style={{ color: 'var(--text-muted)' }}>•</span>
+            <Link to="/docs" className="footer-link">Documentación</Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
             <Link to="/terms" className="footer-link">Términos de Servicio</Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link to="/docs" className="footer-link">Documentación</Link>
+            <Link to="/privacy" className="footer-link">Privacidad</Link>
           </div>
         </div>
       </footer>

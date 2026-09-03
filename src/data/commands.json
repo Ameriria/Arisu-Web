@@ -1,194 +1,288 @@
 [
     {
-        "name": "bang",
-        "category": "Acciones",
-        "description": "Dispara a un usuario de forma amistosa.",
+        "name": "admin_init_logros",
+        "category": "Achievements",
+        "description": "Inicializa el sistema de logros en el servidor.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3bang @usuario"
+        "permissions": "Administrador",
+        "example": "<3admin_init_logros"
     },
     {
-        "name": "mkiss",
-        "category": "Acciones",
-        "description": "Da un beso en la mejilla.",
+        "name": "logros",
+        "category": "Achievements",
+        "description": "Abre tu panel de medallas estelares.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3logros [usuario]"
+    },
+    {
+        "name": "ban",
+        "category": "Active Mod",
+        "description": "Banea a un usuario del servidor.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3ban [argumentos]"
+    },
+    {
+        "name": "clear",
+        "category": "Active Mod",
+        "description": "Limpia una cantidad específica de mensajes del canal.",
         "aliases": [
-            "kiss"
+            "purge"
+        ],
+        "permissions": "Moderador",
+        "example": "<3clear [cantidad] [filtro] [extra]"
+    },
+    {
+        "name": "kick",
+        "category": "Active Mod",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3kick [argumentos]"
+    },
+    {
+        "name": "lockdown",
+        "category": "Active Mod",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3lockdown"
+    },
+    {
+        "name": "mute",
+        "category": "Active Mod",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [
+            "timeout"
+        ],
+        "permissions": "Moderador",
+        "example": "<3mute [argumentos]"
+    },
+    {
+        "name": "nuke",
+        "category": "Active Mod",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3nuke"
+    },
+    {
+        "name": "unban",
+        "category": "Active Mod",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3unban @usuario"
+    },
+    {
+        "name": "unmute",
+        "category": "Active Mod",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [
+            "untimeout"
+        ],
+        "permissions": "Moderador",
+        "example": "<3unmute [argumentos]"
+    },
+    {
+        "name": "unwarn",
+        "category": "Active Mod",
+        "description": "Elimina una sanción usando su ID o muestra las sanciones de un usuario para elegir.",
+        "aliases": [
+            "delwarn",
+            "delsancion"
+        ],
+        "permissions": "Moderador",
+        "example": "<3unwarn [argumento]"
+    },
+    {
+        "name": "warn",
+        "category": "Active Mod",
+        "description": "Advierte a un usuario por una infracción.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3warn [argumentos]"
+    },
+    {
+        "name": "warns",
+        "category": "Active Mod",
+        "description": "Muestra las advertencias acumuladas de un usuario.",
+        "aliases": [
+            "historial"
         ],
         "permissions": "Cualquier Usuario",
-        "example": "<3mkiss @usuario"
+        "example": "<3warns [argumentos]"
     },
     {
-        "name": "fkiss",
-        "category": "Acciones",
-        "description": "Da un beso en la frente.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3fkiss @usuario"
+        "name": "add-bank",
+        "category": "Admin",
+        "description": "Añade dinero directamente al banco de un usuario.",
+        "aliases": [
+            "addbank"
+        ],
+        "permissions": "Administrador",
+        "example": "<3add-bank @usuario [cantidad]"
     },
     {
-        "name": "bkiss",
-        "category": "Acciones",
-        "description": "Besa la mano o frente de alguien.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3bkiss @usuario"
+        "name": "add-bank-role",
+        "category": "Admin",
+        "description": "Añade dinero al banco de todos los miembros con un rol específico.",
+        "aliases": [
+            "addbank_batch"
+        ],
+        "permissions": "Administrador",
+        "example": "<3add-bank-role @rol [cantidad]"
     },
     {
-        "name": "ckiss",
-        "category": "Acciones",
-        "description": "Da un beso tierno.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3ckiss @usuario"
+        "name": "add-money",
+        "category": "Admin",
+        "description": "Añade dinero a la cartera de un usuario.",
+        "aliases": [
+            "addcoins",
+            "addmoney"
+        ],
+        "permissions": "Administrador",
+        "example": "<3add-money @usuario [cantidad]"
     },
     {
-        "name": "hug",
-        "category": "Acciones",
-        "description": "Abraza cariñosamente a otro usuario.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3hug @usuario"
+        "name": "add-money-role",
+        "category": "Admin",
+        "description": "Otorga dinero a todos los miembros con un rol específico.",
+        "aliases": [
+            "addcoins_batch"
+        ],
+        "permissions": "Administrador",
+        "example": "<3add-money-role @rol [cantidad]"
     },
     {
-        "name": "think",
-        "category": "Acciones",
-        "description": "Te quedas pensando profundamente.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3think"
+        "name": "force_restock",
+        "category": "Admin",
+        "description": "Rellena el stock de ítems limitados.",
+        "aliases": [
+            "restock"
+        ],
+        "permissions": "Dueño del Bot",
+        "example": "<3force_restock"
     },
     {
-        "name": "sleepy",
-        "category": "Acciones",
-        "description": "Muestras lo cansado que estás.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3sleepy"
+        "name": "give-item-role",
+        "category": "Admin",
+        "description": "Entrega un objeto de la tienda a todos los miembros de un rol.",
+        "aliases": [
+            "giveitem_batch"
+        ],
+        "permissions": "Administrador",
+        "example": "<3give-item-role @rol [item_name]"
     },
     {
-        "name": "sip",
-        "category": "Acciones",
-        "description": "Toma un sorbo de tu bebida.",
+        "name": "niveles",
+        "category": "Admin",
+        "description": "🛠️ Administra el sistema de niveles y experiencia.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3sip"
+        "permissions": "Administrador",
+        "example": "<3niveles"
     },
     {
-        "name": "scared",
-        "category": "Acciones",
-        "description": "Te asustas por algo.",
+        "name": "niveles cooldown",
+        "category": "Admin",
+        "description": "Ajusta el tiempo de espera (cooldown) en segundos.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3scared"
+        "permissions": "Administrador",
+        "example": "<3niveles cooldown [tipo] [segundos]"
     },
     {
-        "name": "sad",
-        "category": "Acciones",
-        "description": "Expresas tu tristeza.",
+        "name": "niveles modulo",
+        "category": "Admin",
+        "description": "Activa o desactiva fuentes de experiencia.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3sad"
+        "permissions": "Administrador",
+        "example": "<3niveles modulo [modulo] [estado]"
     },
     {
-        "name": "pout",
-        "category": "Acciones",
-        "description": "Haces un puchero tierno.",
+        "name": "niveles resetear_rol",
+        "category": "Admin",
+        "description": "Borra el nivel de todos los miembros con un rol.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3pout"
+        "permissions": "Administrador",
+        "example": "<3niveles resetear_rol @rol"
     },
     {
-        "name": "happy",
-        "category": "Acciones",
-        "description": "Demuestras tu felicidad.",
+        "name": "niveles resetear_servidor",
+        "category": "Admin",
+        "description": "⚠️ Borra los niveles de TODOS en el servidor.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3happy"
+        "permissions": "Administrador",
+        "example": "<3niveles resetear_servidor"
     },
     {
-        "name": "frio",
-        "category": "Acciones",
-        "description": "Tiemblas de frío.",
+        "name": "niveles resetear_usuario",
+        "category": "Admin",
+        "description": "Borra el nivel y experiencia de un usuario.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3frio"
+        "permissions": "Administrador",
+        "example": "<3niveles resetear_usuario @usuario"
     },
     {
-        "name": "eureka",
-        "category": "Acciones",
-        "description": "¡Tienes una gran idea!",
+        "name": "niveles xp_voz",
+        "category": "Admin",
+        "description": "Ajusta la cantidad de XP otorgada por cada minuto en canal de voz.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3eureka"
+        "permissions": "Administrador",
+        "example": "<3niveles xp_voz [xp_por_minuto]"
     },
     {
-        "name": "eat",
-        "category": "Acciones",
-        "description": "Comes algo delicioso.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3eat"
+        "name": "remove-bank",
+        "category": "Admin",
+        "description": "Retira dinero del banco de un usuario.",
+        "aliases": [
+            "removebank"
+        ],
+        "permissions": "Administrador",
+        "example": "<3remove-bank @usuario [cantidad]"
     },
     {
-        "name": "dance",
-        "category": "Acciones",
-        "description": "Empiezas a bailar alegremente.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3dance"
+        "name": "remove-money",
+        "category": "Admin",
+        "description": "Retira dinero de la cartera de un usuario.",
+        "aliases": [
+            "removecoins",
+            "removemoney"
+        ],
+        "permissions": "Administrador",
+        "example": "<3remove-money @usuario [cantidad]"
     },
     {
-        "name": "cute",
-        "category": "Acciones",
-        "description": "Haces una pose linda.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3cute"
+        "name": "reset-cooldown",
+        "category": "Admin",
+        "description": "[Testing] Resetea el cooldown de daily/work/rob de un usuario en este servidor.",
+        "aliases": [
+            "resetcd",
+            "resetcooldown"
+        ],
+        "permissions": "Administrador",
+        "example": "<3reset-cooldown [accion] @usuario"
     },
     {
-        "name": "cry",
-        "category": "Acciones",
-        "description": "Lloras desconsoladamente.",
+        "name": "set-balance",
+        "category": "Admin",
+        "description": "Establece el balance exacto de un usuario.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3cry"
-    },
-    {
-        "name": "calor",
-        "category": "Acciones",
-        "description": "Te quejas del calor agobiante.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3calor"
-    },
-    {
-        "name": "blush",
-        "category": "Acciones",
-        "description": "Te sonrojas tiernamente.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3blush"
-    },
-    {
-        "name": "angry",
-        "category": "Acciones",
-        "description": "Te enfadas visiblemente.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3angry"
+        "permissions": "Administrador",
+        "example": "<3set-balance @usuario [wallet] [bank]"
     },
     {
         "name": "afk",
         "category": "Afk",
-        "description": "Establece tu estado como Ausente.",
+        "description": "Establece tu estado como Ausente y avisa a quien te mencione.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3afk"
+        "example": "<3afk [razon]"
     },
     {
         "name": "ai_toggle",
-        "category": "Ai_chat",
-        "description": "Activa o desactiva la respuesta de inteligencia artificial.",
+        "category": "Ai Chat",
+        "description": "Activa o desactiva la IA en este servidor.",
         "aliases": [],
         "permissions": "Administrador",
         "example": "<3ai_toggle [estado]"
@@ -227,154 +321,201 @@
     },
     {
         "name": "anime",
-        "category": "Api_anime",
-        "description": "Busca información detallada de un anime.",
+        "category": "Api Anime",
+        "description": "Muestra detalles técnicos y una sinopsis traducida por la IA de Arisu.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3anime"
+        "example": "<3anime [nombre]"
     },
     {
-        "name": "link",
-        "category": "Api_steam",
+        "name": "steam",
+        "category": "Api Steam",
+        "description": "Muestra el perfil de Steam de un usuario.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3steam [usuario]"
+    },
+    {
+        "name": "steam link",
+        "category": "Api Steam",
         "description": "Vincula tu cuenta de Steam a tu perfil de Discord.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3link [id_o_url]"
+        "example": "<3steam link [id_o_url]"
     },
     {
-        "name": "sticky_add",
-        "category": "Automatizacion",
-        "description": "Mantiene un mensaje fijo al fondo del canal.",
-        "aliases": [],
-        "permissions": "Moderador",
-        "example": "<3sticky_add"
-    },
-    {
-        "name": "sticky_remove",
-        "category": "Automatizacion",
-        "description": "Elimina el mensaje fijado de este canal.",
-        "aliases": [],
-        "permissions": "Moderador",
-        "example": "<3sticky_remove"
-    },
-    {
-        "name": "trigger_add",
-        "category": "Automatizacion",
-        "description": "Añade una palabra clave que activará una respuesta automática.",
+        "name": "import_list",
+        "category": "Automod",
+        "description": "Importa un archivo .txt o .csv para actualizar una lista.",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3trigger_add [gatillo] [respuesta] [tipo] [modo]"
+        "example": "<3import_list [tipo_lista]"
     },
     {
-        "name": "setup_general",
-        "category": "Canales",
-        "description": "Marca este canal como restringido (Solo comandos básicos).",
-        "aliases": [],
-        "permissions": "Administrador",
-        "example": "<3setup_general"
+        "name": "balance",
+        "category": "Base",
+        "description": "Mira tu dinero actual o el de otro usuario.",
+        "aliases": [
+            "bal",
+            "money",
+            "dinero"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3balance [usuario]"
     },
     {
-        "name": "setup_bot_channel",
-        "category": "Canales",
-        "description": "Configura el canal para usar todos los comandos.",
-        "aliases": [],
-        "permissions": "Administrador",
-        "example": "<3setup_bot_channel [canal]"
+        "name": "deposit",
+        "category": "Base",
+        "description": "Guarda tu dinero en el banco para protegerlo.",
+        "aliases": [
+            "dep"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3deposit [cantidad]"
+    },
+    {
+        "name": "inventory",
+        "category": "Base",
+        "description": "Muestra los objetos de tu inventario.",
+        "aliases": [
+            "inv",
+            "mochila"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3inventory [usuario]"
+    },
+    {
+        "name": "pay",
+        "category": "Base",
+        "description": "Transfiere dinero a otro usuario.",
+        "aliases": [
+            "give-money",
+            "pagar"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3pay @usuario [cantidad]"
+    },
+    {
+        "name": "withdraw",
+        "category": "Base",
+        "description": "Saca dinero del banco a tu cartera.",
+        "aliases": [
+            "with",
+            "retirar"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3withdraw [cantidad]"
     },
     {
         "name": "free_channel",
-        "category": "Canales",
+        "category": "Channels",
         "description": "Elimina las restricciones de canales en este servidor.",
         "aliases": [],
         "permissions": "Administrador",
         "example": "<3free_channel"
     },
     {
-        "name": "confess",
-        "category": "Confesiones",
-        "description": "No hay descripción disponible para este comando.",
+        "name": "setup_bot_channel",
+        "category": "Channels",
+        "description": "Configura el canal para usar todos los comandos.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3confess"
+        "permissions": "Administrador",
+        "example": "<3setup_bot_channel [canal]"
+    },
+    {
+        "name": "setup_general",
+        "category": "Channels",
+        "description": "Marca este canal como restringido (Solo comandos básicos).",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_general"
+    },
+    {
+        "name": "event_channel",
+        "category": "Chat Events",
+        "description": "Configura el canal por defecto para los eventos aleatorios.",
+        "aliases": [
+            "set_event_channel"
+        ],
+        "permissions": "Administrador",
+        "example": "<3event_channel [canal]"
+    },
+    {
+        "name": "event_toggle",
+        "category": "Chat Events",
+        "description": "Activa o desactiva los eventos aleatorios en el servidor.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3event_toggle"
     },
     {
         "name": "confess",
-        "category": "Confesiones",
-        "description": "Envía una confesión al canal secreto.",
+        "category": "Confessions",
+        "description": "Envía una confesión. Usa -p al inicio para que sea pública.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3confess [mensaje] [anonimo]"
+        "example": "<3confess [mensaje]"
     },
     {
         "name": "confession_setup",
-        "category": "Confesiones",
+        "category": "Confessions",
         "description": "Configura el canal de confesiones.",
         "aliases": [],
         "permissions": "Administrador",
         "example": "<3confession_setup [canal]"
     },
     {
-        "name": "welcome",
-        "category": "Debug",
-        "description": "Envía un mensaje de bienvenida de prueba.",
+        "name": "set-server-profile",
+        "category": "Config",
+        "description": "Personaliza mi apodo, avatar, banner y biografía mediante un dulce menú.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3welcome"
+        "permissions": "Moderador",
+        "example": "<3set-server-profile"
     },
     {
-        "name": "goodbye",
+        "name": "test",
         "category": "Debug",
-        "description": "Envía un mensaje de despedida de prueba.",
+        "description": "Comandos para probar los mensajes automáticos.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3goodbye"
+        "permissions": "Administrador",
+        "example": "<3test"
     },
     {
-        "name": "boost",
+        "name": "test boost",
         "category": "Debug",
         "description": "Envía un mensaje de mejora (boost) de prueba.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3boost"
+        "example": "<3test boost"
     },
     {
-        "name": "verify",
+        "name": "test goodbye",
+        "category": "Debug",
+        "description": "Envía un mensaje de despedida de prueba.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3test goodbye"
+    },
+    {
+        "name": "test verify",
         "category": "Debug",
         "description": "Comprueba el sistema de verificación.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3verify"
+        "example": "<3test verify"
     },
     {
-        "name": "balance",
-        "category": "Economy",
-        "description": "No hay descripción disponible para este comando.",
-        "aliases": [
-            "bal"
-        ],
-        "permissions": "Cualquier Usuario",
-        "example": "<3balance @usuario"
-    },
-    {
-        "name": "work",
-        "category": "Economy",
-        "description": "Trabaja para ganar algo de economía.",
+        "name": "test welcome",
+        "category": "Debug",
+        "description": "Envía un mensaje de bienvenida de prueba.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3work"
-    },
-    {
-        "name": "daily",
-        "category": "Economy",
-        "description": "Reclama tu recompensa diaria.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3daily"
+        "example": "<3test welcome"
     },
     {
         "name": "builder",
         "category": "Embeds",
-        "description": "Abre el panel de edición de embeds para Lunae.",
+        "description": "Abre el panel de edición de embeds para Arisu.",
         "aliases": [],
         "permissions": "Administrador",
         "example": "<3builder [nombre]"
@@ -388,76 +529,246 @@
         "example": "<3test_embed [nombre]"
     },
     {
+        "name": "ajustar_boost",
+        "category": "Events",
+        "description": "[Admin] Corrige manualmente el conteo interno de boosts de alguien.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3ajustar_boost [miembro] [cantidad]"
+    },
+    {
+        "name": "boosters",
+        "category": "Events",
+        "description": "Muestra la lista interna de usuarios que han boosteado y cuántas veces.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3boosters"
+    },
+    {
+        "name": "cumple",
+        "category": "Events",
+        "description": "Guarda tu fecha de cumpleaños (DD/MM).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cumple [dia] [mes]"
+    },
+    {
+        "name": "gacha",
+        "category": "Gacha",
+        "description": "Abre el menú interactivo del Gacha del servidor.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3gacha"
+    },
+    {
+        "name": "hsr_clear_fav",
+        "category": "Game Hsr",
+        "description": "Quita un personaje de favoritos.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3hsr_clear_fav [slot]"
+    },
+    {
+        "name": "hsr_set_fav",
+        "category": "Game Hsr",
+        "description": "Elige personajes para tu perfil (Slots 1-5).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3hsr_set_fav [slot] [char_name]"
+    },
+    {
         "name": "reload_hsr",
-        "category": "Game_hsr",
+        "category": "Game Hsr",
         "description": "Recarga tus datos de Honkai Star Rail.",
         "aliases": [],
         "permissions": "Dueño del Bot",
         "example": "<3reload_hsr"
     },
     {
-        "name": "hsr_set_fav",
-        "category": "Game_hsr",
-        "description": "Fija personajes en tu perfil (Slots 1-5).",
+        "name": "derby",
+        "category": "Game Uma",
+        "description": "Sistema de carreras multijugador.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3hsr_set_fav [slot] [char_name]"
+        "example": "<3derby"
     },
     {
-        "name": "hsr_clear_fav",
-        "category": "Game_hsr",
-        "description": "Limpia un slot de favoritos.",
-        "aliases": [],
+        "name": "derby cancel",
+        "category": "Game Uma",
+        "description": "Cancela el Derby.",
+        "aliases": [
+            "c"
+        ],
         "permissions": "Cualquier Usuario",
-        "example": "<3hsr_clear_fav [slot]"
+        "example": "<3derby cancel"
     },
     {
-        "name": "join",
-        "category": "Game_uma",
-        "description": "Únete a la carrera actual.",
-        "aliases": [],
+        "name": "derby create",
+        "category": "Game Uma",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [
+            "new"
+        ],
         "permissions": "Cualquier Usuario",
-        "example": "<3join"
+        "example": "<3derby create"
     },
     {
-        "name": "invite",
-        "category": "Game_uma",
-        "description": "Invita a un usuario a competir.",
-        "aliases": [],
+        "name": "derby invite",
+        "category": "Game Uma",
+        "description": "Invita usuarios al Derby.",
+        "aliases": [
+            "inv",
+            "i"
+        ],
         "permissions": "Cualquier Usuario",
-        "example": "<3invite [usuario]"
+        "example": "<3derby invite @usuario"
     },
     {
-        "name": "start",
-        "category": "Game_uma",
-        "description": "Comienza la carrera (Solo anfitrión).",
-        "aliases": [],
+        "name": "derby join",
+        "category": "Game Uma",
+        "description": "Únete al Derby actual.",
+        "aliases": [
+            "j",
+            "unirse"
+        ],
         "permissions": "Cualquier Usuario",
-        "example": "<3start"
+        "example": "<3derby join"
     },
     {
-        "name": "cancel",
-        "category": "Game_uma",
-        "description": "Cancela el lobby de carrera.",
-        "aliases": [],
+        "name": "derby leave",
+        "category": "Game Uma",
+        "description": "Sal del Derby.",
+        "aliases": [
+            "l",
+            "salir"
+        ],
         "permissions": "Cualquier Usuario",
-        "example": "<3cancel"
+        "example": "<3derby leave"
     },
     {
-        "name": "gstart",
-        "category": "Giveaways",
-        "description": "Inicia un nuevo sorteo estelar.",
+        "name": "derby start",
+        "category": "Game Uma",
+        "description": "Inicia la carrera.",
+        "aliases": [
+            "s",
+            "iniciar"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3derby start"
+    },
+    {
+        "name": "outfit",
+        "category": "Game Uma",
+        "description": "Cambia la skin de tu Uma.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3gstart [duracion] [costo] [ganadores]"
+        "example": "<3outfit [uma_name] [tipo]"
+    },
+    {
+        "name": "race",
+        "category": "Game Uma",
+        "description": "Abre el menú de carreras.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3race [corredor]"
+    },
+    {
+        "name": "reload_umas",
+        "category": "Game Uma",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Dueño del Bot",
+        "example": "<3reload_umas"
+    },
+    {
+        "name": "train",
+        "category": "Game Uma",
+        "description": "Entrena a tu Uma.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3train [personaje] [tipo]"
+    },
+    {
+        "name": "uma_clear_fav",
+        "category": "Game Uma",
+        "description": "Quita una Uma de un slot.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3uma_clear_fav [slot]"
+    },
+    {
+        "name": "uma_set_fav",
+        "category": "Game Uma",
+        "description": "Elige Umas para tu perfil (Slots 1-5).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3uma_set_fav [slot] [uma_name]"
+    },
+    {
+        "name": "avatar",
+        "category": "General",
+        "description": "Muestra la foto de perfil de un usuario en alta calidad.",
+        "aliases": [
+            "av",
+            "pfp"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3avatar [usuario]"
+    },
+    {
+        "name": "grab",
+        "category": "General",
+        "description": "Agranda un emoji (puedes escribirlo o responder a un mensaje).",
+        "aliases": [
+            "ver",
+            "emoji"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3grab [emoji]"
+    },
+    {
+        "name": "ping",
+        "category": "General",
+        "description": "Revisa la velocidad de respuesta de Arisu.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3ping"
+    },
+    {
+        "name": "server",
+        "category": "General",
+        "description": "Muestra la información de este servidor.",
+        "aliases": [
+            "info"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3server"
+    },
+    {
+        "name": "sticker",
+        "category": "General",
+        "description": "Extrae un sticker en alta calidad. Responde al mensaje con el sticker.",
+        "aliases": [
+            "st"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sticker"
     },
     {
         "name": "greroll",
         "category": "Giveaways",
-        "description": "Selecciona un nuevo ganador para un sorteo.",
+        "description": "Selecciona un nuevo ganador para un sorteo finalizado.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3greroll [message_id]"
+        "example": "<3greroll [message_id] [antiguo_ganador]"
+    },
+    {
+        "name": "gstart",
+        "category": "Giveaways",
+        "description": "Inicia un nuevo sorteo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3gstart [duracion] [costo] [ganadores] [host] [whitelist] [blacklist] [premio_rol] [premio]"
     },
     {
         "name": "help",
@@ -466,6 +777,30 @@
         "aliases": [],
         "permissions": "Cualquier Usuario",
         "example": "<3help [comando]"
+    },
+    {
+        "name": "daily",
+        "category": "Income",
+        "description": "Reclama tu recompensa diaria.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3daily"
+    },
+    {
+        "name": "rob",
+        "category": "Income",
+        "description": "Intenta robarle dinero en mano a otro usuario.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3rob [victim]"
+    },
+    {
+        "name": "work",
+        "category": "Income",
+        "description": "Trabaja duro para ganar dinero.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3work"
     },
     {
         "name": "invites",
@@ -484,94 +819,42 @@
         "example": "<3top_invites"
     },
     {
-        "name": "logros",
-        "category": "Logros",
-        "description": "Abre tu panel de medallas estelares.",
+        "name": "leaderboard",
+        "category": "Leaderboard",
+        "description": "🏆 Abre el panel interactivo del Ranking del servidor.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3logros [usuario]"
+        "example": "<3leaderboard"
     },
     {
-        "name": "admin_init_logros",
-        "category": "Logros",
-        "description": "Inicializa el sistema de logros en el servidor.",
+        "name": "setlog",
+        "category": "Logs",
+        "description": "Asigna un canal para una categoría de logs (Soporta canales externos)",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3admin_init_logros"
+        "example": "<3setlog [categoria] [canal_id]"
     },
     {
-        "name": "nuke",
-        "category": "Moderacion",
-        "description": "Despeja el canal clonándolo para eliminar la bruma acumulada.",
+        "name": "pause",
+        "category": "Music",
+        "description": "Pausa la reproducción actual.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3nuke"
-    },
-    {
-        "name": "lockdown",
-        "category": "Moderacion",
-        "description": "Cierra el envío de mensajes en el canal actual.",
-        "aliases": [],
-        "permissions": "Administrador",
-        "example": "<3lockdown"
-    },
-    {
-        "name": "warn",
-        "category": "Moderacion",
-        "description": "Advierte a un usuario por una infracción.",
-        "aliases": [],
-        "permissions": "Moderador",
-        "example": "<3warn [usuario] [nivel]"
-    },
-    {
-        "name": "warns",
-        "category": "Moderacion",
-        "description": "Muestra las advertencias acumuladas de un usuario.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3warns [usuario]"
-    },
-    {
-        "name": "clear",
-        "category": "Moderacion",
-        "description": "Limpia una cantidad específica de mensajes del canal.",
-        "aliases": [
-            "purge"
-        ],
-        "permissions": "Moderador",
-        "example": "<3clear [cantidad]"
-    },
-    {
-        "name": "ban",
-        "category": "Moderacion",
-        "description": "Banea a un usuario del servidor.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3ban [usuario]"
+        "example": "<3pause"
     },
     {
         "name": "play",
-        "category": "Musica",
-        "description": "Reproduce música desde YouTube.",
+        "category": "Music",
+        "description": "Reproduce música por nombre o enlace.",
         "aliases": [
             "p"
         ],
         "permissions": "Cualquier Usuario",
-        "example": "<3play"
-    },
-    {
-        "name": "skip",
-        "category": "Musica",
-        "description": "Salta a la siguiente melodía.",
-        "aliases": [
-            "s"
-        ],
-        "permissions": "Cualquier Usuario",
-        "example": "<3skip"
+        "example": "<3play [query]"
     },
     {
         "name": "queue",
-        "category": "Musica",
+        "category": "Music",
         "description": "Visualiza la lista de espera.",
         "aliases": [
             "q"
@@ -580,8 +863,34 @@
         "example": "<3queue"
     },
     {
+        "name": "resume",
+        "category": "Music",
+        "description": "Continúa con la música pausada.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3resume"
+    },
+    {
+        "name": "shuffle",
+        "category": "Music",
+        "description": "Mezcla las canciones de la cola.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3shuffle"
+    },
+    {
+        "name": "skip",
+        "category": "Music",
+        "description": "Salta a la siguiente melodía.",
+        "aliases": [
+            "s"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3skip"
+    },
+    {
         "name": "stop",
-        "category": "Musica",
+        "category": "Music",
         "description": "Detiene la música y retira al bot.",
         "aliases": [
             "leave"
@@ -590,60 +899,273 @@
         "example": "<3stop"
     },
     {
-        "name": "pause",
-        "category": "Musica",
-        "description": "Pausa la reproducción actual.",
+        "name": "perfil",
+        "category": "Profile",
+        "description": "Consulta el perfil de un miembro.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3pause"
-    },
-    {
-        "name": "resume",
-        "category": "Musica",
-        "description": "Continúa con la música pausada.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3resume"
-    },
-    {
-        "name": "shuffle",
-        "category": "Musica",
-        "description": "Mezcla las canciones de la cola.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3shuffle"
-    },
-    {
-        "name": "rank",
-        "category": "Niveles",
-        "description": "Muestra tu nivel y progreso estelar.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3rank [usuario]"
-    },
-    {
-        "name": "leaderboard",
-        "category": "Niveles",
-        "description": "Ranking de los usuarios con mayor brillo.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3leaderboard"
-    },
-    {
-        "name": "setup_roles",
-        "category": "Roles",
-        "description": "Despliega un panel estético de auto-roles.",
-        "aliases": [],
-        "permissions": "Administrador",
-        "example": "<3setup_roles [titulo] [modo]"
+        "example": "<3perfil [usuario]"
     },
     {
         "name": "profile",
-        "category": "Social",
-        "description": "Visualiza tu esencia y progreso estelar.",
+        "category": "Profile",
+        "description": "Consulta el perfil de un miembro.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
         "example": "<3profile [usuario]"
+    },
+    {
+        "name": "staff_desde",
+        "category": "Profile",
+        "description": "[Admin] Fija/corrige la fecha de ingreso al staff mostrada en el perfil.",
+        "aliases": [],
+        "permissions": "Moderador",
+        "example": "<3staff_desde [usuario] [dias_atras]"
+    },
+    {
+        "name": "staff_disponibilidad",
+        "category": "Profile",
+        "description": "[Staff] Cambia tu disponibilidad mostrada en el perfil.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3staff_disponibilidad [disponibilidad]"
+    },
+    {
+        "name": "setquote",
+        "category": "Quote",
+        "description": "Configura el canal para las citas. \nUso: !setquote #canal (para fijar) o !setquote (para restablecer al canal original)",
+        "aliases": [
+            "quotechannel"
+        ],
+        "permissions": "Moderador",
+        "example": "<3setquote [canal]"
+    },
+    {
+        "name": "angry",
+        "category": "Roleplay",
+        "description": "Muestra tu enojo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3angry"
+    },
+    {
+        "name": "bang",
+        "category": "Roleplay",
+        "description": "Dispárale a alguien (de juguete).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3bang @usuario"
+    },
+    {
+        "name": "bkiss",
+        "category": "Roleplay",
+        "description": "Lanza un beso volador.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3bkiss @usuario"
+    },
+    {
+        "name": "blush",
+        "category": "Roleplay",
+        "description": "Sonrójate.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3blush"
+    },
+    {
+        "name": "calor",
+        "category": "Roleplay",
+        "description": "¡Uf! Hace calor.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3calor"
+    },
+    {
+        "name": "ckiss",
+        "category": "Roleplay",
+        "description": "Un beso en la mejilla.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3ckiss @usuario"
+    },
+    {
+        "name": "cry",
+        "category": "Roleplay",
+        "description": "Ponte a llorar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cry"
+    },
+    {
+        "name": "cute",
+        "category": "Roleplay",
+        "description": "Actúa de forma adorable.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3cute"
+    },
+    {
+        "name": "dance",
+        "category": "Roleplay",
+        "description": "Ponte a bailar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3dance"
+    },
+    {
+        "name": "eat",
+        "category": "Roleplay",
+        "description": "Muestra que estás comiendo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3eat"
+    },
+    {
+        "name": "eureka",
+        "category": "Roleplay",
+        "description": "¡Tuviste una idea!",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3eureka"
+    },
+    {
+        "name": "fkiss",
+        "category": "Roleplay",
+        "description": "Un beso tierno en la frente.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3fkiss @usuario"
+    },
+    {
+        "name": "frio",
+        "category": "Roleplay",
+        "description": "¡Brrr! Hace frío.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3frio"
+    },
+    {
+        "name": "happy",
+        "category": "Roleplay",
+        "description": "Expresa felicidad.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3happy"
+    },
+    {
+        "name": "hug",
+        "category": "Roleplay",
+        "description": "Da un gran abrazo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3hug @usuario"
+    },
+    {
+        "name": "mkiss",
+        "category": "Roleplay",
+        "description": "Un beso apasionado.",
+        "aliases": [
+            "kiss"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3mkiss @usuario"
+    },
+    {
+        "name": "pout",
+        "category": "Roleplay",
+        "description": "Haz un puchero.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3pout"
+    },
+    {
+        "name": "sad",
+        "category": "Roleplay",
+        "description": "Expresa tristeza.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sad"
+    },
+    {
+        "name": "scared",
+        "category": "Roleplay",
+        "description": "Expresa que tienes miedo.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3scared"
+    },
+    {
+        "name": "sip",
+        "category": "Roleplay",
+        "description": "Toma un sorbito de tu bebida.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sip"
+    },
+    {
+        "name": "sleepy",
+        "category": "Roleplay",
+        "description": "Muestra que tienes sueño.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sleepy"
+    },
+    {
+        "name": "think",
+        "category": "Roleplay",
+        "description": "Muestra que estás pensando.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3think"
+    },
+    {
+        "name": "buy",
+        "category": "Shop",
+        "description": "Compra un objeto de la tienda mediante su ID o Nombre.",
+        "aliases": [
+            "comprar"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3buy [nombre_o_id]"
+    },
+    {
+        "name": "shop",
+        "category": "Shop",
+        "description": "Abre la tienda del servidor.",
+        "aliases": [
+            "store",
+            "tienda"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3shop"
+    },
+    {
+        "name": "ticket",
+        "category": "Shop",
+        "description": "Compra boletos para la lotería semanal.",
+        "aliases": [
+            "comprarticket"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3ticket [cantidad]"
+    },
+    {
+        "name": "use",
+        "category": "Shop",
+        "description": "Usa un objeto de tu inventario mediante su ID o Nombre.",
+        "aliases": [
+            "usar"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3use [args]"
+    },
+    {
+        "name": "divorce",
+        "category": "Social",
+        "description": "Rompe un vínculo estelar.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3divorce [usuario]"
     },
     {
         "name": "marry",
@@ -654,6 +1176,14 @@
         "example": "<3marry [usuario]"
     },
     {
+        "name": "remove_bestie",
+        "category": "Social",
+        "description": "[Booster] Quita Twin Star.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3remove_bestie"
+    },
+    {
         "name": "rep",
         "category": "Social",
         "description": "Otorga un destello de reputación.",
@@ -662,133 +1192,268 @@
         "example": "<3rep [usuario]"
     },
     {
-        "name": "divorce",
+        "name": "set_banner",
         "category": "Social",
-        "description": "Anula tu matrimonio actual.",
+        "description": "[Booster] Banner de perfil.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3divorce [usuario]"
+        "example": "<3set_banner [url]"
+    },
+    {
+        "name": "set_bestie",
+        "category": "Social",
+        "description": "[Booster] Elige Twin Star.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3set_bestie [usuario]"
+    },
+    {
+        "name": "set_bio",
+        "category": "Social",
+        "description": "[VIP] Frase de perfil.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3set_bio [texto]"
     },
     {
         "name": "set_color",
         "category": "Social",
-        "description": "Personaliza el color de tu perfil estelar.",
+        "description": "[VIP] Color de perfil.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
         "example": "<3set_color [color]"
     },
     {
+        "name": "superrep",
+        "category": "Social",
+        "description": "+10 Reputación (Mensual).",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3superrep [usuario]"
+    },
+    {
         "name": "toggle_marry",
         "category": "Social",
-        "description": "Alterna si aceptas o rechazas propuestas de matrimonio.",
+        "description": "Bloquea/Desbloquea propuestas.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
         "example": "<3toggle_marry"
     },
     {
-        "name": "vc_lock",
-        "category": "Tempvoice",
-        "description": "Cierra las puertas de tu refugio.",
+        "name": "unrep",
+        "category": "Social",
+        "description": "Resta reputación a alguien.",
         "aliases": [],
         "permissions": "Cualquier Usuario",
-        "example": "<3vc_lock"
+        "example": "<3unrep [usuario]"
     },
     {
-        "name": "vc_unlock",
-        "category": "Tempvoice",
-        "description": "Abre tu refugio a otros viajeros.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3vc_unlock"
-    },
-    {
-        "name": "vc_kick",
-        "category": "Tempvoice",
-        "description": "Retira a un viajero de tu refugio.",
-        "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3vc_kick [usuario]"
-    },
-    {
-        "name": "setup_vc_hub",
-        "category": "Tempvoice",
-        "description": "Define el canal Bóveda que manifestará los refugios.",
+        "name": "sticky_add",
+        "category": "Stickies",
+        "description": "Mantiene un mensaje fijo o plantilla al fondo del canal.",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3setup_vc_hub [canal]"
+        "example": "<3sticky_add [mensaje] [template_name]"
     },
     {
-        "name": "setup_tickets",
+        "name": "sticky_remove",
+        "category": "Stickies",
+        "description": "Elimina el mensaje fijado de este canal.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3sticky_remove"
+    },
+    {
+        "name": "panel_vc",
+        "category": "Tempvoice",
+        "description": "Genera el panel interactivo de botones en el canal actual usando la BD.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3panel_vc"
+    },
+    {
+        "name": "setup_vc",
+        "category": "Tempvoice",
+        "description": "Define el canal base al que los usuarios entrarán para crear el suyo.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup_vc [canal]"
+    },
+    {
+        "name": "setup",
         "category": "Tickets",
-        "description": "Configura el sistema de tickets de soporte.",
+        "description": "No hay descripción disponible para este comando.",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3setup_tickets [categoria] [logs_id]"
+        "example": "<3setup"
     },
     {
-        "name": "ticket_panel",
+        "name": "setup ticket",
         "category": "Tickets",
-        "description": "Genera el panel interactivo para abrir tickets.",
+        "description": "No hay descripción disponible para este comando.",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3ticket_panel [canal]"
+        "example": "<3setup ticket"
     },
     {
-        "name": "cumple",
-        "category": "Utilidad",
-        "description": "Registra tu ciclo de nacimiento (DD/MM).",
+        "name": "setup ticket active_category",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3cumple [dia] [mes]"
+        "permissions": "Administrador",
+        "example": "<3setup ticket active_category [category]"
     },
     {
-        "name": "ping",
-        "category": "Utilidad",
-        "description": "Muestra la sintonía de Lunae.",
+        "name": "setup ticket attach",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
         "aliases": [],
-        "permissions": "Cualquier Usuario",
-        "example": "<3ping"
+        "permissions": "Administrador",
+        "example": "<3setup ticket attach #canal [message_id]"
     },
     {
-        "name": "server",
-        "category": "Utilidad",
-        "description": "Muestra los registros del servidor.",
+        "name": "setup ticket category",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket category [category]"
+    },
+    {
+        "name": "setup ticket logs",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket logs #canal"
+    },
+    {
+        "name": "setup ticket role",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket role"
+    },
+    {
+        "name": "setup ticket role add",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket role add @rol"
+    },
+    {
+        "name": "setup ticket role remove",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket role remove @rol"
+    },
+    {
+        "name": "setup ticket type",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket type"
+    },
+    {
+        "name": "setup ticket type add",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
         "aliases": [
-            "info"
+            "edit"
+        ],
+        "permissions": "Administrador",
+        "example": "<3setup ticket type add [prefix] [emoji] [label]"
+    },
+    {
+        "name": "setup ticket type list",
+        "category": "Tickets",
+        "description": "Muestra los botones/tipos de tickets configurados.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket type list"
+    },
+    {
+        "name": "setup ticket type remove",
+        "category": "Tickets",
+        "description": "No hay descripción disponible para este comando.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3setup ticket type remove [prefix]"
+    },
+    {
+        "name": "torneo",
+        "category": "Tournaments",
+        "description": "🏆 Revisa si hay un evento activo y muestra el ranking actual.",
+        "aliases": [],
+        "permissions": "Cualquier Usuario",
+        "example": "<3torneo"
+    },
+    {
+        "name": "gift",
+        "category": "Trade",
+        "description": "Regala un objeto o personaje a otro usuario.",
+        "aliases": [
+            "regalar"
         ],
         "permissions": "Cualquier Usuario",
-        "example": "<3server"
+        "example": "<3gift [usuario] [objeto]"
     },
     {
-        "name": "publicar_mapita",
-        "category": "Utilidad",
-        "description": "Publica la guía y vincula los registros para auto-actualización.",
-        "aliases": [],
-        "permissions": "Administrador",
-        "example": "<3publicar_mapita"
+        "name": "sell",
+        "category": "Trade",
+        "description": "Ofrece un objeto o personaje en venta a otro usuario.",
+        "aliases": [
+            "vender"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3sell [comprador] [objeto] [precio]"
     },
     {
-        "name": "send_boost_info",
-        "category": "Utilidad",
-        "description": "Despliega la tabla de beneficios para quienes otorgan su brillo (Boosters).",
-        "aliases": [],
-        "permissions": "Administrador",
-        "example": "<3send_boost_info"
+        "name": "trade",
+        "category": "Trade",
+        "description": "Inicia un intercambio de objetos o personajes con otro usuario.",
+        "aliases": [
+            "intercambiar",
+            "intercambio"
+        ],
+        "permissions": "Cualquier Usuario",
+        "example": "<3trade [usuario] [mi_objeto]"
     },
     {
-        "name": "setup_verification",
-        "category": "Verificacion",
-        "description": "Prepara el umbral de entrada al servidor.",
+        "name": "reaction_add",
+        "category": "Triggers",
+        "description": "Agrega una reacción automática a un gatillo.",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3setup_verification [rol] [canal]"
+        "example": "<3reaction_add [gatillo] [emoji] [modo] [cooldown]"
     },
     {
-        "name": "add_verify_role",
-        "category": "Verificacion",
-        "description": "Vincula una distinción (rol) adicional a la recompensa del umbral.",
+        "name": "reaction_remove",
+        "category": "Triggers",
+        "description": "Elimina la reacción automática de un gatillo.",
         "aliases": [],
         "permissions": "Administrador",
-        "example": "<3add_verify_role [rol]"
+        "example": "<3reaction_remove [gatillo]"
+    },
+    {
+        "name": "trigger_add",
+        "category": "Triggers",
+        "description": "Agrega una respuesta automática.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3trigger_add [gatillo] [respuesta] [tipo] [modo] [cooldown]"
+    },
+    {
+        "name": "trigger_remove",
+        "category": "Triggers",
+        "description": "Elimina todas las respuestas de un gatillo.",
+        "aliases": [],
+        "permissions": "Administrador",
+        "example": "<3trigger_remove [gatillo]"
     }
 ]
