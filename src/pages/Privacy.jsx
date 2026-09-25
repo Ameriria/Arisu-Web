@@ -166,7 +166,7 @@ const PrivacyPolicy = () => {
       <div className="terms-content">
         <FadeInSection>
           <h1 id="politica-de-privacidad"><a href="#politica-de-privacidad" className="hash-anchor">#</a>Política de Privacidad</h1>
-          <span className="last-updated">Última actualización: {new Date().toLocaleDateString('es-ES')}</span>
+          <span className="last-updated">Última actualización: 25 de septiembre de 2026</span>
 
           <p>
             Arisu recopila y utiliza únicamente la información necesaria para su funcionamiento y para ofrecerte la mejor experiencia posible en tu servidor de Discord. Al utilizar el bot, aceptas las prácticas descritas en esta política.

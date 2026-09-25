@@ -93,23 +93,6 @@ const SECTIONS = [
     )
   },
   {
-    id: 'suscripciones-y-reembolsos',
-    title: '4. Suscripciones y Reembolsos',
-    content: (
-      <>
-        <p>
-          Arisu ofrece características adicionales y límites ampliados mediante servicios de pago, estructurados en dos niveles de suscripción: <strong>Sweet</strong> y <strong>Nectar</strong>.
-        </p>
-        <ul>
-          <li><strong>Naturaleza digital:</strong> Debido a que los niveles Sweet y Nectar otorgan acceso a bienes y ventajas digitales, todas las compras son definitivas. No se ofrecen reembolsos una vez que el pago ha sido procesado.</li>
-          <li><strong>Cancelaciones:</strong> Puedes cancelar tu suscripción en cualquier momento. Seguirás teniendo acceso a los beneficios de tu nivel hasta que finalice tu ciclo de facturación actual.</li>
-          <li><strong>Excepciones:</strong> Solo se considerarán reembolsos a nuestra total discreción en circunstancias muy excepcionales (por ejemplo, cobros duplicados por error del sistema).</li>
-          <li><strong>Modificaciones:</strong> Nos reservamos el derecho de ajustar el precio o las características incluidas en los niveles Sweet y Nectar en cualquier momento, lo cual será notificado previamente.</li>
-        </ul>
-      </>
-    )
-  },
-  {
     id: 'ia-y-desarrollo',
     title: '5. Uso de IA y Desarrollo',
     content: (
@@ -194,7 +177,7 @@ const Terms = () => {
       <div className="terms-content">
         <FadeInSection>
           <h1 id="terminos-de-servicio"><a href="#terminos-de-servicio" className="hash-anchor">#</a>Términos de Servicio</h1>
-          <span className="last-updated">Última actualización: {new Date().toLocaleDateString('es-ES')}</span>
+          <span className="last-updated">Última actualización: 25 de septiembre de 2026</span>
 
           <p>
             Al invitar y utilizar Arisu en tu servidor de Discord, aceptas los siguientes Términos de Servicio. Si no estás de acuerdo con alguno de estos términos, no debes utilizar el bot.
