@@ -77,7 +77,7 @@ function App() {
 
         {/* Lado Izquierdo: Logo */}
         <Link to="/" className="nav-link" style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <img src="/Arisu-logo-a.svg" alt="Arisu Logo" style={{ 
+          <img src="/arisu-logo.svg" alt="Arisu Logo" style={{ 
             // También achicamos un poquito el logo al hacer scroll para que no se vea apretado
             width: isScrolled ? 24 : 28, 
             height: isScrolled ? 24 : 28,
